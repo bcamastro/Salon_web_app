@@ -1,0 +1,23 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-weight: bold;
+}
+
+.nav-links {
+    margin-right: 10px;
+}
+
+.navwidth {
+    flex-wrap: nowrap;
+}
