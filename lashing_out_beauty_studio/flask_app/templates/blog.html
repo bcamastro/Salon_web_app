@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/navstyle.css">
+    <link rel="stylesheet" href="/static/css/blog.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container d-flex justify-content-center">
+            <nav class="navbar navwidth">
+                <a class="btn nav-links shadow" href="/">home</a>
+                <a class="btn nav-links shadow" href="/about">about</a>
+                <a class="btn nav-links shadow" href="/services">services</a>
+                <a class="btn nav-links shadow" href="/contact">contact</a>
+                <a class="btn nav-links shadow" href="https://squareup.com/appointments/book/jot6jauaamrrud/LWWXR80ET4ZA3/services" target="_blank">online booking</a>
+                {%if "user_id" in session%}
+                    <a class="btn nav-links shadow" href="/logout">logout</a>
+                {%else%}
+                    <a class="btn nav-links shadow" href="/login_sign_up">login / sign-up</a>
+                {%endif%}
+            </nav>
+        </div>
+        <div class="container text-center mb-4 mt-5">
+            <h3>post to our blog:</h3>
+            <form action="/blog_post" method="POST">
+                <label for="title">post title:</label>
+                <input type="text" id="title" name="title">
+                <textarea name="post_text" id="post_text" cols="30" rows="5"></textarea>
+                <div class="text-center mt-2">
+                    <button type="submit" class="btn nav-links shadow">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="container text-center mt-5">
+            {%for posts in blog%}
+                <h4>posted by: {{posts.user_posts.first_name}} {{posts.user_posts.last_name}} date: {{posts.created_at.strftime('%m-%d-%y')}} </h4>
+                <h5>Title: {{posts.title}}</h5>
+                <div class="p">
+                    <p>{{posts.post_text}}</p>
+                </div>
+                <div class="btn-group post-actions" role="group">
+                    {%if posts.user_posts.id == session['user_id']%}
+                    <a href="/edit/{{posts.id}}" class="btn nav-links shadow">edit</a>
+                    <a href="/delete/{{posts.id}}" class="btn nav-links shadow">delete</a>
+                    {%endif%}
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+</html>

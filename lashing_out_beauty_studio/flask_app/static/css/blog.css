@@ -1,0 +1,25 @@
+#post_text {
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #C0B283;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.post-actions {
+    /* display: flex; */
+    justify-content: center;
+    margin-top: 15px;
+    width: 10%;
+
+}
+.p {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #C0B283;
+    word-wrap: break-word;
+}

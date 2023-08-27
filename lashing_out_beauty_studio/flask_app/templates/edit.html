@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/navstyle.css">
+    <link rel="stylesheet" href="/static/css/blog.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container text-center mb-4 mt-5">
+            <h3>Update post:</h3>
+            <form action="/update/{{post.id}}" method="POST">
+                <label for="title">post title:</label>
+                <input type="text" id="title" name="title" value="{{post.title}}">
+                <textarea name="post_text" id="post_text" cols="30" rows="5">{{post.post_text}}</textarea>
+                <div class="text-center mt-2">
+                    <button type="submit" class="btn nav-links shadow">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
